@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Educational Institutes</title>
+<style>
+  .cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 10px;
+    width: 22%; /* Set the width to fit four cards in a row */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+  }
+
+  .card h2 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+
+  .card p {
+    margin: 5px 0;
+  }
+
+  .card img {
+    width: 100%;
+    max-width: 100%; /* Ensure images don't exceed the card width */
+    border-radius: 8px;
+  }
+
+  /* Colors */
+  .card:nth-child(1) {
+    background-color: #ffcccc; /* Light Red */
+  }
+
+  .card:nth-child(2) {
+    background-color: #ccffcc; /* Light Green */
+  }
+
+  .card:nth-child(3) {
+    background-color: #ccccff; /* Light Blue */
+  }
+
+  .card:nth-child(4) {
+    background-color: #ffccff; /* Light Purple */
+  }
+</style>
+</head>
+<body>
+<div class="cardContainer" id="cardContainer"></div>
+
+<script>
+const institutes = [
+  { name: "Birla Temple", link: "https://www.google.com/maps/place/ISKCON+Hyderabad/@17.3879167,78.4725021,17z/data=!3m1!4b1!4m9!3m8!1s0x3bcb977d8a39004d:0xec3fa7ea449f96f5!5m2!4m1!1i2!8m2!3d17.3879167!4d78.4750824!16s%2Fg%2F1tfzqcgz?entry=ttu",  location: "Kukatpally", image: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Birla_Mandir%2C_Hyderabad.png" },
+  { name: "Iskcon Temple", link: "https://cbit.ac.in/",  location: "Gandipet", image: "https://www.bestbus.in/assets/images/tourist-attractions/iskan-temple-hyderabad.jpg" },
+  { name: "Balkampet Yellama", link: "https://www.bits-pilani.ac.in/hyderabad/",  location: "Shamirpet", image: "https://balkampettemple.telangana.gov.in/files/b1b71d8e16a908b4bf35b593d7b84fdc.jpg" },
+  <!--{ name: "Chilukuri Balaji", link: "https://www.resortsinhyderabad.co.in/uploads/Chilkur-Balaji-Temple.jpg" }-->
+];
+
+const cardContainer = document.getElementById("cardContainer");
+
+institutes.forEach(institute => {
+  const card = document.createElement("div");
+  card.classList.add("card");
+  card.innerHTML = `
+    <h2>${institute.name}</h2>
+    <img src="${institute.image}" alt="${institute.name}">
+    <p>Main Stream: ${institute.stream}</p>
+    <p>Location: ${institute.location}</p>
+    <p><a href="${institute.link}" target="_blank">Visit Website</a></p>
+  `;
+  cardContainer.appendChild(card);
+});
+</script>
+</body>
+</html>

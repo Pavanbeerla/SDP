@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Educational Institutes</title>
+<style>
+  .cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 10px;
+    width: 22%; /* Set the width to fit four cards in a row */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+  }
+
+  .card h2 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+
+  .card p {
+    margin: 5px 0;
+  }
+
+  .card img {
+    width: 100%;
+    max-width: 100%; /* Ensure images don't exceed the card width */
+    border-radius: 8px;
+  }
+
+  /* Colors */
+  .card:nth-child(1) {
+    background-color: #ffcccc; /* Light Red */
+  }
+
+  .card:nth-child(2) {
+    background-color: #ccffcc; /* Light Green */
+  }
+
+  .card:nth-child(3) {
+    background-color: #ccccff; /* Light Blue */
+  }
+
+  .card:nth-child(4) {
+    background-color: #ffccff; /* Light Purple */
+  }
+</style>
+</head>
+<body>
+<div class="cardContainer" id="cardContainer"></div>
+
+<script>
+const institutes = [
+  { name: "JNTU", rating: 4.1, stream: "Engineering", location: "Kukatpally", image: "https://jntuh.ac.in/images/jntuhcers_images.jpeg" },
+  { name: "CBIT", rating: 3.9, stream: "Arts", location: "Gandipet", image: "https://cbit.ac.in/wp-content/uploads/2019/01/gal-image-1.jpg" },
+  { name: "BITS", rating: 3.9, stream: "Technology", location: "Shamirpet", image: "https://www.geospatialworld.net/wp-content/uploads/2023/04/smartcity.png" },
+  { name: "SNIST", rating: 3, stream: "Fine Arts", location: "Ghatkesar", image: "https://www.collegebatch.com/static/clg-gallery/sreenidhi-institute-of-science-technology-hyderabad-249291.jpg" },
+  { name: "CMR", rating: 4, stream: "Engineering", location: "Medchal", image: "https://s3-ap-south-1.amazonaws.com/cmrec/wp-media-folder-cmr-engineering-college-hyderabad-telangana-india-approved-by-aicte-new-delhi-and-affiliated-to-jnt-university-hyderabad/wp-content/uploads/2021/07/CMREC-Main.jpg" },
+  { name: "MLRIT", rating: 3.5, stream: "Arts", location: "Kandalakoyya", image: "https://images.shiksha.com/mediadata/images/1547110013php9bMjmq.jpeg" },
+  { name: "CVR", rating: 3.8, stream: "Technology", location: "Ibrahimpatnam", image: "https://cvr.ac.in/home4/images/library2.jpg" },
+  { name: "IARE", rating: 3, stream: "Fine Arts", location: "Dundigal", image: "https://www.iare.ac.in/sites/default/files/RBP_1125%20_r.jpg" },
+  { name: "KMIT", rating: 4.1, stream: "Engineering", location: "Narayanguda", image: "https://www.collegebatch.com/static/clg-gallery/keshav-memorial-institute-of-technology-hyderabad-255306.jpg" },
+  { name: "OU", rating: 3.9, stream: "Arts", location: "Kukatpally", image: "https://images.jdmagicbox.com/comp/hyderabad/y5/040p1236700825d8n6y5/catalogue/osmania-university-tarnaka-hyderabad-colleges-58x1ufu8ei.jpg?clr=#1f3d47" },
+  { name: "BITS", rating: 3.9, stream: "Technology", location: "Shamirpet", image: "https://www.geospatialworld.net/wp-content/uploads/2023/04/smartcity.png" },
+  { name: "SNIST", rating: 3, stream: "Fine Arts", location: "Ghatkesar", image: "https://www.collegebatch.com/static/clg-gallery/sreenidhi-institute-of-science-technology-hyderabad-249291.jpg" }
+];
+
+const cardContainer = document.getElementById("cardContainer");
+
+institutes.forEach(institute => {
+  const card = document.createElement("div");
+  card.classList.add("card");
+  card.innerHTML = `
+    <h2>${institute.name}</h2>
+    <img src="${institute.image}" alt="${institute.name}">
+    <p>Rating: ${institute.rating}</p>
+    <p>Main Stream: ${institute.stream}</p>
+    <p>Location: ${institute.location}</p>
+  `;
+  cardContainer.appendChild(card);
+});
+</script>
+</body>
+</html>
